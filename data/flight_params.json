@@ -1,0 +1,21 @@
+{
+    "ACCEL_THRESHOLD": 3.0,
+    "LIGHT_THRESHOLD": 120,
+    "DISREEF_ALT": 1200.0,
+    "VELOC_THRESHOLD": 25.0,
+    "POLL_FREQ": 10,
+    "log": {
+      "altitude": true,
+      "raw_altitude": true,
+      "velocity": true,
+      "pressure": true,
+      "temperature": true,
+      "accel": true,
+      "gyro": true,
+      "light": true,
+      "continuity": true,
+      "battery_voltage": true,
+      "events": true
+    }
+}
+  
