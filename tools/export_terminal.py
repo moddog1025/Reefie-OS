@@ -1,10 +1,10 @@
 import sys
-import serial
-from PyQt6.QtWidgets import (
+import serial # type: ignore
+from PyQt6.QtWidgets import ( # type: ignore
     QApplication, QMainWindow, QTextEdit, QLineEdit, QVBoxLayout, QWidget,
     QDialog, QDialogButtonBox, QLabel, QPushButton, QFileDialog, QHBoxLayout
 )
-from PyQt6.QtCore import QTimer
+from PyQt6.QtCore import QTimer # type: ignore
 
 
 class FileActionDialog(QDialog):
