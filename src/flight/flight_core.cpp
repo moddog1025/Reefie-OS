@@ -1,4 +1,4 @@
-#ifndef EXPORT_TOOL
+#ifndef REEFIE_FLIGHT_DESK_TERMINAL
 
 #include "reefie_config.h"
 #include "telemetry.h"

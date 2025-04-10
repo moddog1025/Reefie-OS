@@ -1,0 +1,7 @@
+{
+    "ACCEL_THRESHOLD": 20.0,
+    "LIGHT_THRESHOLD": 50,
+    "DISREEF_ALT": 200.0,
+    "VELOC_THRESHOLD": 0.5,
+    "POLL_FREQ": 20
+}
