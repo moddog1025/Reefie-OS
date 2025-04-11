@@ -26,7 +26,7 @@ bool initLogFile() {
     }
     
     
-    currentLogFilename = "/flight_" + String(maxFlightNum + 1) + ".csv";
+    currentLogFilename = "/jack_data_" + String(maxFlightNum + 1) + ".csv";
     
     
     File headerFile = LittleFS.open(currentLogFilename, "w");

@@ -1,3 +1,5 @@
+#ifndef REEFIE_FLIGHT_DESK_TERMINAL
+
 #include "reefie_config.h"
 #include "telemetry.h"
 #include "board_init.h"
@@ -6,7 +8,6 @@
 #include <ESPAsyncWebServer.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
-#include "rfd_terminal.h"
 
 const char* ssid = "Reefie_v3L";
 const char* password = "BPE12345";
@@ -123,12 +124,6 @@ void loop() {
       }
       lastPollTime = millis();
     }
-
-    if (Serial.available() && !inFlight) {
-      String input = Serial.readStringUntil('\n');
-      loopCommand(input);
-    }
-
     
     switch (currentState) {
       case PAD_IDLE:
@@ -162,11 +157,6 @@ void loop() {
         stopLogging();
         break;
     }
-  
-  if (!inFlight && millis() - lastMgmtHeartbeat >= 10000) {
-    Serial.println("FILE_MGMT_READY");
-    lastMgmtHeartbeat = millis();
-  }
 
 }
 
@@ -175,7 +165,7 @@ bool launchedCheck() {
 }
   
 bool chuteDeployedCheck() {
-  return Telem.light >= flightParams.LIGHT_THRESHOLD;
+  return baro.data.altitude >= 30.0; //Telem.light >= flightParams.LIGHT_THRESHOLD;
 }
 
 bool disreefAltitudeCheck() {
@@ -186,3 +176,4 @@ bool touchdownCheck() {
   return abs(Telem.velocity) <= flightParams.VELOC_THRESHOLD;
 }
 
+#endif

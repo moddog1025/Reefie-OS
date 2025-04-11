@@ -1,9 +1,9 @@
 {
-    "ACCEL_THRESHOLD": 5.0,
-    "LIGHT_THRESHOLD": 50,
-    "DISREEF_ALT": 30.0,
+    "ACCEL_THRESHOLD": 20.0,
+    "LIGHT_THRESHOLD": 1,
+    "DISREEF_ALT": 15.0,
     "VELOC_THRESHOLD": 2.5,
-    "POLL_FREQ": 20,
+    "POLL_FREQ": 10,
     "log": {
       "altitude": true,
       "raw_altitude": true,

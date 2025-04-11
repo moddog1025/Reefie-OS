@@ -1,8 +1,11 @@
+#ifdef REEFIE_FLIGHT_DESK_TERMINAL
+
 #include <Arduino.h>
 #include <LittleFS.h>
 #include "file_manager.h"
 #include "reefie_config.h"
-#include "rfd_terminal.h"
+
+#define MAX_FILES 20
 
 // Global array to hold file names.
 String fileList[MAX_FILES];
@@ -143,3 +146,23 @@ void loopCommand(String line) {
     processCommand(line);
   }
 }
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) delay(10);
+  if (!LittleFS.begin()) {
+    Serial.println("LittleFS initialization failed!");
+    while (1) delay(1000);
+  }
+  Serial.println("Reefie File Manager Interface Ready.");
+  Serial.println("Type LIST to list files.");
+}
+
+void loop() {
+  if (Serial.available()) {
+    String input = Serial.readStringUntil('\n');
+    loopCommand(input);
+  }
+}
+
+#endif
