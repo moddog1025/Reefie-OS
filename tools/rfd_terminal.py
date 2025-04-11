@@ -68,7 +68,7 @@ class FlightParamsDialog(QDialog):
         self.log_checkboxes = {}
         log_params = self.params.get("log", {})
         for key, value in log_params.items():
-            checkbox = QCheckBox()
+            checkbox = checkbox()
             checkbox.setChecked(value)
             self.log_checkboxes[key] = checkbox
             self.formLayout.addRow(f"Log {key}:", checkbox)
