@@ -10,5 +10,5 @@ void updateTelemetry() {
     Telem.velocity = baro.data.velocity;
     Telem.accel_mag = sqrt((imu.data.ax*imu.data.ax) + (imu.data.ay*imu.data.ay) + (imu.data.az*imu.data.az));
     Telem.light = analogRead(LIGHT_SENSOR_PIN);
-    Telem.continuityReading = analogRead(PYRO_CONTINUITY_PIN);
+    Telem.continuityReading = digitalRead(PYRO_CONTINUITY_PIN);
 }

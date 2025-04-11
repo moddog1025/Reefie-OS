@@ -57,7 +57,7 @@ bool initLogFile() {
 }
 
 void startLogging() {
-    logFile = LittleFS.open(currentLogFilename, "w");
+    logFile = LittleFS.open(currentLogFilename, "a");
     loggingActive = true;
     loggingStartTime = millis();
 }

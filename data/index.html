@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rocket Telemetry Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 20px;
+      text-align: center;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
+      max-width: 600px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+    }
+    th {
+      background-color: #e2e2e2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reefie Flight Desk</h1>
+  <table>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td id="state">--</td>
+    </tr>
+    <tr>
+      <td>Altitude (m)</td>
+      <td id="altitude">--</td>
+    </tr>
+    <tr>
+      <td>Velocity (m/s)</td>
+      <td id="velocity">--</td>
+    </tr>
+    <tr>
+      <td>Acceleration Magnitude (m/s²)</td>
+      <td id="accelMag">--</td>
+    </tr>
+    <tr>
+      <td>Light</td>
+      <td id="light">--</td>
+    </tr>
+  </table>
+
+  <script>
+    async function fetchData(){
+      try {
+        // Fetch from your /data endpoint
+        const response = await fetch('/data');
+        if (!response.ok) {
+          console.error("Response not OK:", response.status);
+          return;
+        }
+        const data = await response.json();
+        // Update fields – fallback to "--" if undefined
+        document.getElementById("state").textContent = data.state || "--";
+        document.getElementById("altitude").textContent = (data.altitude !== undefined ? data.altitude + " m" : "--");
+        document.getElementById("velocity").textContent = (data.velocity !== undefined ? data.velocity + " m/s" : "--");
+        document.getElementById("accelMag").textContent = (data.accelMag !== undefined ? data.accelMag + " m/s²" : "--");
+        document.getElementById("light").textContent = (data.light !== undefined ? data.light + " lx" : "--");
+      } catch (err) {
+        console.error("Error fetching telemetry data:", err);
+      }
+    }
+
+    // Update every second
+    setInterval(fetchData, 1000);
+    // Also fetch immediately on page load.
+    fetchData();
+  </script>
+</body>
+</html>
