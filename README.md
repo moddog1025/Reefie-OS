@@ -20,7 +20,7 @@ Reefie logs the following parameters to onboard flash at 20 Hz:
 | Altitude          | YES    |
 | Velocity          | YES    |
 | Pressure          | YES    |
-| Acceleration      | YES    |
+| Acceleration      | NO     |
 | Light Level       | YES    |
 | Continuity Status | YES    |
 | Battery Voltage   | YES    |
