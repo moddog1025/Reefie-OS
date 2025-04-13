@@ -77,8 +77,8 @@ void logData() {
     if (flightParams.log.velocity)       line += "," + String(baro.data.velocity);
     if (flightParams.log.pressure)       line += "," + String(baro.data.pressure);
     if (flightParams.log.temperature)    line += "," + String(baro.data.temperature);
-    if (flightParams.log.accel)          line += "," + String(imu.data.ax) + "," + String(imu.data.ay) + "," + String(imu.data.az);
-    if (flightParams.log.gyro)           line += "," + String(imu.data.gx) + "," + String(imu.data.gy) + "," + String(imu.data.gz);
+    //if (flightParams.log.accel)          line += "," + String(imu.data.ax) + "," + String(imu.data.ay) + "," + String(imu.data.az);
+    //if (flightParams.log.gyro)           line += "," + String(imu.data.gx) + "," + String(imu.data.gy) + "," + String(imu.data.gz);
     if (flightParams.log.light)          line += "," + String(analogRead(LIGHT_SENSOR_PIN));
     if (flightParams.log.continuity)     line += "," + String(digitalRead(PYRO_CONTINUITY_PIN));
     if (flightParams.log.battery_voltage)line += "," + String(analogRead(BATTERY_VOLTAGE_PIN));
@@ -111,7 +111,7 @@ void startTestLog(uint16_t durationSec, bool printAfter, bool deleteAfter) {
     while (millis() - startTime < durationSec * 1000UL) {
         
         baro.poll();
-        imu.poll();
+        //imu.poll();
 
         
         String line = String(millis());
@@ -120,8 +120,8 @@ void startTestLog(uint16_t durationSec, bool printAfter, bool deleteAfter) {
         if (flightParams.log.velocity)        line += "," + String(baro.data.velocity);
         if (flightParams.log.pressure)        line += "," + String(baro.data.pressure);
         if (flightParams.log.temperature)     line += "," + String(baro.data.temperature);
-        if (flightParams.log.accel)           line += "," + String(imu.data.ax) + "," + String(imu.data.ay) + "," + String(imu.data.az);
-        if (flightParams.log.gyro)            line += "," + String(imu.data.gx) + "," + String(imu.data.gy) + "," + String(imu.data.gz);
+        //if (flightParams.log.accel)           line += "," + String(imu.data.ax) + "," + String(imu.data.ay) + "," + String(imu.data.az);
+        //if (flightParams.log.gyro)            line += "," + String(imu.data.gx) + "," + String(imu.data.gy) + "," + String(imu.data.gz);
         if (flightParams.log.light)           line += "," + String(analogRead(LIGHT_SENSOR_PIN));
         if (flightParams.log.continuity)      line += "," + String(digitalRead(PYRO_CONTINUITY_PIN));
         if (flightParams.log.battery_voltage) line += "," + String(analogRead(BATTERY_VOLTAGE_PIN));

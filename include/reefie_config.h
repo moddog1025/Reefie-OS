@@ -4,7 +4,7 @@
 #include <ArduinoJson.h>
 #include <FS.h>
 #include <LittleFS.h>
-#include "imu.h"
+//#include "imu.h"
 #include "barometer.h"
 #include "board_init.h"
 #include "file_manager.h"

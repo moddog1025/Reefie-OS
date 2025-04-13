@@ -14,6 +14,7 @@
 
 //AsyncWebServer server(80);
 
+
 enum FlightState {
     PAD_IDLE,
     ASCENT,
@@ -26,8 +27,8 @@ FlightState currentState = PAD_IDLE;
 
 
 const unsigned long LAUNCH_DEBOUNCE_TIME = 250;
-const unsigned long APOGEE_DEBOUNCE_TIME = 2000;
-const unsigned long DISREEF_DEBOUNCE_TIME = 1000;
+const unsigned long APOGEE_DEBOUNCE_TIME = 4000;
+const unsigned long DISREEF_DEBOUNCE_TIME = 500;
 const unsigned long TOUCHDOWN_DEBOUNCE_TIME = 1000;
 
 bool inFlight = false;
@@ -172,7 +173,7 @@ void loop() {
 }
 
 bool launchedCheck() {
-  return Telem.accel_mag >= flightParams.ACCEL_THRESHOLD;
+  return Telem.velocity >= 10;
 }
   
 bool chuteDeployedCheck() {

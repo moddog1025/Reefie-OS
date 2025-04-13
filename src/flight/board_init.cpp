@@ -2,7 +2,7 @@
 #include "reefie_config.h"
 
 Barometer baro;
-IMU imu;
+//IMU imu;
 FlightParameters flightParams;
 String eventMarker = "";
 
@@ -20,7 +20,7 @@ bool initializeBoard() {
 
     // Initialize sensors.
     baro.begin();
-    imu.begin();
+    //imu.begin();
 
     // Set flight parameters to default values.
     flightParams = {

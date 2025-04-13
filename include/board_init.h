@@ -5,7 +5,7 @@
 //Default flight parameters
 #define DEF_ACCEL_THRESHOLD 25.0
 #define DEF_LIGHT_THRESHOLD 40
-#define DEF_DISREEF_ALT 152.2
+#define DEF_DISREEF_ALT 182.2
 #define DEF_VELOC_THRESHOLD 2.5
 #define DEF_POLL_FREQ 20
 
@@ -35,7 +35,7 @@ struct FlightParameters {
 extern FlightParameters flightParams;
 
 extern Barometer baro;
-extern IMU imu;
+//extern IMU imu;
 
 extern String eventMarker;
 
