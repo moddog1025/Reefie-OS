@@ -58,3 +58,10 @@ pio run -t uploadfs -e reefie_v3l
 ```bash
 pio run -t upload -e reefie_v3l
 ```
+
+### Reverse Polarity Fix
+
+Bridge Drain and Source PMOS pads 
+    *See images in /rev-pol_bypass_fix
+
+WARNING: Find the "+" near the battery pads before plugging it in. If you reverse the polarity of the battery terminals without the reverse polarity circuity you will unalive Reefie. Insta dead. Do not pass go, do not collect 200 dollars. Magic black smoke = BAD.
