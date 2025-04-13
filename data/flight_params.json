@@ -10,7 +10,7 @@
       "velocity": true,
       "pressure": true,
       "temperature": false,
-      "accel": true,
+      "accel": false,
       "gyro": false,
       "light": true,
       "continuity": true,
