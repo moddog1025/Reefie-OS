@@ -3,11 +3,10 @@
 #include "reefie_config.h"
 
 //Default flight parameters
-#define DEF_ACCEL_THRESHOLD 30.0
-#define DEF_LIGHT_THRESHOLD 50
-#define DEF_DISREEF_ALT 365.0
-#define DEF_VELOC_THRESHOLD 2.0
-#define DEF_LAUNCH_SITE_ID 0
+#define DEF_ACCEL_THRESHOLD 25.0
+#define DEF_LIGHT_THRESHOLD 40
+#define DEF_DISREEF_ALT 152.2
+#define DEF_VELOC_THRESHOLD 2.5
 #define DEF_POLL_FREQ 20
 
 struct FlightLogOptions {
