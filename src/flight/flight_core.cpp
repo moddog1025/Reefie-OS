@@ -3,16 +3,16 @@
 #include "reefie_config.h"
 #include "telemetry.h"
 #include "board_init.h"
-#include <WiFi.h>
-#include <AsyncTCP.h>
-#include <ESPAsyncWebServer.h>
+//#include <WiFi.h>
+//#include <AsyncTCP.h>
+//#include <ESPAsyncWebServer.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "Reefie_v3L";
-const char* password = "BPE12345";
+//const char* ssid = "Reefie_v3L";
+//const char* password = "BPE12345";
 
-AsyncWebServer server(80);
+//AsyncWebServer server(80);
 
 enum FlightState {
     PAD_IDLE,
@@ -53,6 +53,10 @@ bool checkStateChange(bool condition, unsigned long& lastTrueTime, unsigned long
 }
 
 
+
+
+
+/*
 void initWebDash() {
   
   WiFi.softAP(ssid, password);
@@ -97,14 +101,22 @@ void initWebDash() {
   Serial.println("HTTP server started");
 }
 
+*/
+
+
+
+
+
 void setup() {
     Serial.begin(115200);
     delay(1000);
     
     initializeBoard();
     initLogFile();
-    initWebDash();
+    //initWebDash();
 }
+
+
 
 void loop() {
 
@@ -113,7 +125,6 @@ void loop() {
     static unsigned long disreefTimer = 0;
     static unsigned long touchdownTimer = 0;
     static unsigned long lastPollTime = 0;
-    static unsigned long lastMgmtHeartbeat = 0;
 
     unsigned long interval = 1000 / flightParams.POLL_FREQ;
     
@@ -165,7 +176,7 @@ bool launchedCheck() {
 }
   
 bool chuteDeployedCheck() {
-  return baro.data.altitude >= 30.0; //Telem.light >= flightParams.LIGHT_THRESHOLD;
+  return Telem.light >= flightParams.LIGHT_THRESHOLD;
 }
 
 bool disreefAltitudeCheck() {
